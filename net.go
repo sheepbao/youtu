@@ -17,7 +17,7 @@ import (
 )
 
 func (y *Youtu) interfaceURL(ifname string) string {
-	return fmt.Sprintf("http://%s/youtu/api/%s", y.host, ifname)
+	return fmt.Sprintf("http://%s/%s", y.host, ifname)
 }
 
 func (y *Youtu) interfaceRequest(ifname string, req, rsp interface{}) (err error) {

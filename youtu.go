@@ -138,7 +138,7 @@ func (y *Youtu) DetectFace(imageData []byte, isBigFace bool) (rsp DetectFaceRsp,
 		Image: b64Image,
 		Mode:  mode(isBigFace),
 	}
-	err = y.interfaceRequest("detectface", req, &rsp)
+	err = y.interfaceRequest("youtu/api/detectface", req, &rsp)
 	return
 }
 
@@ -182,7 +182,7 @@ func (y *Youtu) FaceShape(image []byte, isBigFace bool) (rsp FaceShapeRsp, err e
 		Image: b64Image,
 		Mode:  mode(isBigFace),
 	}
-	err = y.interfaceRequest("faceshape", req, &rsp)
+	err = y.interfaceRequest("youtu/api/faceshape", req, &rsp)
 	return
 }
 
@@ -212,7 +212,7 @@ func (y *Youtu) FaceCompare(imageA, imageB []byte) (rsp FaceCompareRsp, err erro
 		ImageA: b64ImageA,
 		ImageB: b64ImageB,
 	}
-	err = y.interfaceRequest("facecompare", req, &rsp)
+	err = y.interfaceRequest("youtu/api/facecompare", req, &rsp)
 	return
 }
 
@@ -239,7 +239,7 @@ func (y *Youtu) FaceVerify(personID string, image []byte) (rsp FaceVerifyRsp, er
 		Image:    b64Image,
 		PersonID: personID,
 	}
-	err = y.interfaceRequest("faceverify", req, &rsp)
+	err = y.interfaceRequest("youtu/api/faceverify", req, &rsp)
 	return
 }
 
@@ -267,7 +267,7 @@ func (y *Youtu) FaceIdentify(groupID string, image []byte) (rsp FaceIdentifyRsp,
 		GroupID: groupID,
 		Image:   b64Image,
 	}
-	err = y.interfaceRequest("faceidentify", req, &rsp)
+	err = y.interfaceRequest("youtu/api/faceidentify", req, &rsp)
 	return
 }
 
@@ -303,7 +303,7 @@ func (y *Youtu) NewPerson(personID string, personName string, groupIDs []string,
 		PersonName: personName,
 		Tag:        tag,
 	}
-	err = y.interfaceRequest("newperson", req, &rsp)
+	err = y.interfaceRequest("youtu/api/newperson", req, &rsp)
 	return
 }
 
@@ -326,7 +326,7 @@ func (y *Youtu) DelPerson(personID string) (rsp DelPersonRsp, err error) {
 		AppID:    y.appID(),
 		PersonID: personID,
 	}
-	err = y.interfaceRequest("delperson", req, &rsp)
+	err = y.interfaceRequest("youtu/api/delperson", req, &rsp)
 	return
 }
 
@@ -359,7 +359,7 @@ func (y *Youtu) AddFace(personID string, images [][]byte, tag string) (rsp AddFa
 		PersonID: personID,
 		Tag:      tag,
 	}
-	err = y.interfaceRequest("addface", req, &rsp)
+	err = y.interfaceRequest("youtu/api/addface", req, &rsp)
 	return
 }
 
@@ -384,7 +384,7 @@ func (y *Youtu) DelFace(personID string, faceIDs []string) (rsp DelFaceRsp, err 
 		PersonID: personID,
 		FaceIDs:  faceIDs,
 	}
-	err = y.interfaceRequest("delface", req, &rsp)
+	err = y.interfaceRequest("youtu/api/delface", req, &rsp)
 	return
 }
 
@@ -411,7 +411,7 @@ func (y *Youtu) SetInfo(personID string, personName string, tag string) (rsp Set
 		PersonName: personName,
 		Tag:        tag,
 	}
-	err = y.interfaceRequest("setinfo", req, &rsp)
+	err = y.interfaceRequest("youtu/api/setinfo", req, &rsp)
 	return
 }
 
@@ -437,7 +437,7 @@ func (y *Youtu) GetInfo(personID string) (rsp GetInfoRsp, err error) {
 		AppID:    y.appID(),
 		PersonID: personID,
 	}
-	err = y.interfaceRequest("getinfo", req, &rsp)
+	err = y.interfaceRequest("youtu/api/getinfo", req, &rsp)
 	return
 }
 
@@ -457,7 +457,7 @@ func (y *Youtu) GetGroupIDs() (rsp GetGroupIDsRsp, err error) {
 	req := getGroupIDsReq{
 		AppID: y.appID(),
 	}
-	err = y.interfaceRequest("getgroupids", req, &rsp)
+	err = y.interfaceRequest("youtu/api/getgroupids", req, &rsp)
 	return
 }
 
@@ -479,7 +479,7 @@ func (y *Youtu) GetPersonIDs(groupID string) (rsp GetPersonIDsRsp, err error) {
 		AppID:   y.appID(),
 		GroupID: groupID,
 	}
-	err = y.interfaceRequest("getpersonids", req, &rsp)
+	err = y.interfaceRequest("youtu/api/getpersonids", req, &rsp)
 	return
 }
 
@@ -501,7 +501,7 @@ func (y *Youtu) GetFaceIDs(personID string) (rsp GetFaceIDsRsp, err error) {
 		AppID:    y.appID(),
 		PersonID: personID,
 	}
-	err = y.interfaceRequest("getfaceids", req, &rsp)
+	err = y.interfaceRequest("youtu/api/getfaceids", req, &rsp)
 	return
 }
 
@@ -523,6 +523,6 @@ func (y *Youtu) GetFaceInfo(faceID string) (rsp GetFaceInfoRsp, err error) {
 		AppID:  y.appID(),
 		FaceID: faceID,
 	}
-	err = y.interfaceRequest("getfaceinfo", req, &rsp)
+	err = y.interfaceRequest("youtu/api/getfaceinfo", req, &rsp)
 	return
 }

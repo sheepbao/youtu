@@ -40,7 +40,7 @@ func TestDetectFace(t *testing.T) {
 }
 
 func TestFaceShape(t *testing.T) {
-	imgData, err := ioutil.ReadFile(testDataDir + "faceshape.jpg")
+	imgData, err := ioutil.ReadFile(testDataDir + "imageB.jpg")
 	if err != nil {
 		t.Errorf("ReadFile failed: %s\n", err)
 		return
@@ -212,3 +212,33 @@ func TestGetFaceInfo(t *testing.T) {
 	}
 	t.Logf("rsp: %#v\n", rsp)
 }
+
+
+func TestFuzzyDetect(t *testing.T) {
+	image, err := ioutil.ReadFile(testDataDir + "imageA.jpg")
+	if err != nil {
+		t.Errorf("ioutil.ReadFile failed: %s\n", err)
+		return
+	}
+	rsp, err := yt.FuzzyDetect(image)
+	if err != nil {
+		t.Errorf("FuzzyDetect failed: %s\n", err)
+		return
+	}
+	t.Logf("rsp: %#v\n", rsp)
+}
+
+func TestImageTag(t *testing.T) {
+	image, err := ioutil.ReadFile(testDataDir + "imageTag.jpg")
+	if err != nil {
+		t.Errorf("ioutil.ReadFile failed: %s\n", err)
+		return
+	}
+	rsp, err := yt.ImageTag(image)
+	if err != nil {
+		t.Errorf("ImageTag failed: %s\n", err)
+		return
+	}
+	t.Logf("rsp: %#v\n", rsp)
+}
+
